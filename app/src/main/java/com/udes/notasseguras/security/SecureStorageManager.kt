@@ -1,4 +1,4 @@
-package com.ejemplo.notasseguras.security
+package com.udes.notasseguras.security
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -43,6 +43,7 @@ object SecureStorageManager {
     fun limpiarSesion(context: Context) {
         getPrefs(context).edit()
             .remove(KEY_SESSION_TOKEN)
-            .apply()
+            .commit()
+        context.deleteSharedPreferences(PREFS_NAME)
     }
 }
